@@ -26,3 +26,6 @@ docker attach f99d74b72307c69bc4233400fa8aebcd422e8bdbaf686c33dbb981b5134fe7ba
 bash run_server_2pass.sh
 
 ws://127.0.0.1:10096/
+
+
+  

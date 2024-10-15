@@ -308,7 +308,7 @@ async def message(id):
                 ]
                 from qwen_agent.llm import get_chat_model
                 result = get_chat_model({
-                    'model': 'qwen2',
+                    'model': 'qwen2.5',
                     'model_server': 'http://127.0.0.1:11434/v1',
                     'generate_cfg': {
                         'top_p': 0.8
