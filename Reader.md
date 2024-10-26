@@ -17,15 +17,19 @@ docker save -o funasr.tar 1c2adfcff84df11cac2f5c20aa4bc62c521fa7f269f5e44848fd55
 
 docker tag 1c2adfcff84df11cac2f5c20aa4bc62c521fa7f269f5e44848fd55cc973023b1 funasr_cpu:funasr_diy
 
-docker run -p 10096:10095 -itd --privileged=true -v D:/PycharmProjects/Image-element-positioning/funasr-runtime-resources/models:/workspace/models funasr_cpu:funasr_diy
+docker run -p 10096:10095 -itd --privileged=true -v D:/Python_workspace/image-element-positioning/funasr-runtime-resources/models:/workspace/models funasr_cpu:funasr_diy
 
 
 # 启动服务
 docker attach f99d74b72307c69bc4233400fa8aebcd422e8bdbaf686c33dbb981b5134fe7ba
 
+修改配置文件
+
 bash run_server_2pass.sh
 
 ws://127.0.0.1:10096/
+
+python funasr_qwen2_chat.py --host "127.0.0.1" --port 10096 --mode offline --ssl 0
 
 
   

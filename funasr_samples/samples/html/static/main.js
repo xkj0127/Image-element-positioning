@@ -354,7 +354,7 @@ function getJsonMessage( jsonMsg ) {
 		// ------------------添加的--------------------------
 			// 准备要发送的数据
     	const data = {
-    	      "model":"qwen2",
+    	      "model":"qwen2.5",
     			"messages":[
 					{
 						"role":"system",
