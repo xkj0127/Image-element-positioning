@@ -105,7 +105,7 @@ class Funasr_websocket_recognizer():
 if __name__ == '__main__':
     print('example for Funasr_websocket_recognizer') 
     import wave
-    wav_path="asr_example.wav"
+    wav_path=r"D:\Python_workspace\image-element-positioning\tools\inputs\recording.wav"
     with wave.open(wav_path, "rb") as wav_file:
                 params = wav_file.getparams()
                 frames = wav_file.readframes(wav_file.getnframes())
