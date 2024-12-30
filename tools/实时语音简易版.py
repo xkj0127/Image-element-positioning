@@ -1,5 +1,6 @@
 import os
 import pyttsx3
+import requests
 import websockets
 import asyncio
 import json
@@ -10,7 +11,7 @@ import pyaudio
 logging.basicConfig(level=logging.ERROR)
 voices = Queue()
 offline_msg_done = False
-
+engine = pyttsx3.init()
 async def record_microphone():
     global voices
     p = pyaudio.PyAudio()
@@ -40,13 +41,30 @@ async def message():
             text = response_data.get("text", "")
             offline_msg_done = response_data.get("is_final", False)
             print("输入：", text)
+            data = {
+                "model": 'qwen2.5',
+                "prompt": text,
+                "stream": False
+            }
+            # 发送 POST 请求
+            response = requests.post("http://127.0.0.1:11434/api/generate", json=data)
+            # 检查响应状态码
+            if response.status_code == 200:
+                # 获取生成的文本
+                generated_text = response
+                generated_text = json.loads(generated_text.text)
+                result = generated_text['response']
+                print(result)
+                engine.say(result)  # 开始朗读
+                engine.runAndWait()  # 等待语音播报完毕
+
 
     except Exception as e:
         print("Exception:", e)
 
 async def ws_client():
     global websocket
-    uri = "ws://localhost:10096"
+    uri = "ws://127.0.0.1:10096"
     print("connect to", uri)
     async with websockets.connect(uri, subprotocols=["binary"], ping_interval=None) as websocket:
         await asyncio.gather(record_microphone(), message())

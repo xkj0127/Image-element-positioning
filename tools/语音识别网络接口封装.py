@@ -20,6 +20,7 @@ model = AutoModel(
 )
 
 
+
 # 主识别函数
 async def recognize_audio(file_path: str):
     res = model.generate(

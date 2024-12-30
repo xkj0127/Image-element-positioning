@@ -43,7 +43,7 @@ class SpeechRecognitionClient(QtWidgets.QWidget):
     async def connect_websocket(self):
         """连接到WebSocket服务端"""
         try:
-            self.websocket = await websockets.connect("ws://localhost:10096")
+            self.websocket = await websockets.connect("ws://127.0.0.1:10096")
             logging.info("连接到服务端")
         except Exception as e:
             logging.error("连接到WebSocket服务端失败: %s", e)

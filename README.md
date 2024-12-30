@@ -1,39 +1,59 @@
 # Image-element-positioning
 
-#### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+## 介绍
+简单操作电脑的智能体，主要利用ocr检查文本内容的demo
 
-#### 软件架构
-软件架构说明
+## 使用教程
+1. docker搭建funasr环境开启服务
+2. python funasr_qwen2_tools.py
 
-
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+## 项目展示
+![5.jpg](imgs/5.jpg)
 
 
-#### 特技
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+
+## 说明
+    """
+        本项利用大模型解读自然语言，实现对电脑的操作，即便在只有cpu的机器上也能快速完成，全本地，可无需联网
+        利用的技术与模型：
+        1. LLM 使用qwen2      （还推荐使用Gemma2，都是小模型，即便在只有cpu的机器上也能快速完成）
+        2. OCR 使用paddle ocr （比EasyOCR快四十倍）
+        3. 实时语音识别阿里的FunASR （比谷歌的快，对中文支持较好）
+        4. 其他自动化技术不再赘述
+        """
+
+        self.get_op = {
+            "name": "get_op",
+            "description": "获取对哔哩哔哩网页页面的操作",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "click": {
+                        "type": "list",
+                        "description": "点击某处，例如：点击番剧"
+                    },
+                    "watch": {
+                        "type": "list",
+                        "description": "播放某视频，例如：播放小猪佩奇"
+                    },
+                    "settings": {
+                        "type": "list",
+                        "description": "设置某选项为多少，例如：设置音量为20，设置亮度为80"
+                    },
+                    "move": {
+                        "type": "list",
+                        "description": "对页面的上下移动，例如：往下一点，往上一点"
+                    },
+                    "draw": {
+                        "type": "list",
+                        "description": "勾画某句子,不需要考虑勾画后面的名词是什么意思，例如：框选螃蟹这种格式"
+                    },
+                    "clean": {
+                        "type": "list",
+                        "description": "清除,只需要关注这两点，例如：清除"
+                    },
+                }
+
+            }
+        }
