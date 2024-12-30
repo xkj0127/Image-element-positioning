@@ -10,7 +10,6 @@
 ## 项目展示
 ![5.jpg](./imgs/5.jpg)
 
-file:/D:/Python_workspace/image-element-positioning/imgs/test.mp4
 
 
 ## 说明
