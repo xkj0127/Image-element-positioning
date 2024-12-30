@@ -8,7 +8,7 @@
 2. python funasr_qwen2_tools.py
 
 ## 项目展示
-![image](./imgs/5.jpg)
+![本地路径](/imgs/5.jpg "展示")
 
 
 
