@@ -8,7 +8,7 @@
 2. python funasr_qwen2_tools.py
 
 ## 项目展示
-![5.jpg](./imgs/5.jpg)
+![image](./imgs/5.jpg)
 
 
 
